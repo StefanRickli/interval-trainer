@@ -86,10 +86,18 @@ export class ToneSamplerEngine {
       try {
         this.sampler = new Tone.Sampler({
           urls: {
-            C4: "C4.mp3",
-            "D#4": "Ds4.mp3",
+            A1: "A1.mp3",
+            D2: "D2.mp3",
+            "F#2": "Fs2.mp3",
+            A2: "A2.mp3",
+            D3: "D3.mp3",
+            "F#3": "Fs3.mp3",
+            A3: "A3.mp3",
+            D4: "D4.mp3",
             "F#4": "Fs4.mp3",
             A4: "A4.mp3",
+            D5: "D5.mp3",
+            A5: "A5.mp3",
           },
           baseUrl: "https://tonejs.github.io/audio/salamander/",
           onload: () => {
