@@ -216,7 +216,7 @@ function newCard() {
   current = { ...drawValidCard(), revealed: false };
   renderCard();
   // Reset reveal button text
-  btnReveal.textContent = "Reveal & Play";
+  btnReveal.innerHTML = "Reveal &amp;<br>Play Target";
 }
 
 async function playPrev(ms = 600) {
@@ -381,7 +381,7 @@ btnReveal.addEventListener("click", async () => {
   await ensureToneStarted();
   // First click reveals + plays; subsequent clicks replay
   await revealAndPlay();
-  btnReveal.textContent = "Replay";
+  btnReveal.textContent = "▶ Target";
 });
 
 // Keyboard shortcuts

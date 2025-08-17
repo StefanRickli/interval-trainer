@@ -30,11 +30,13 @@ body{
 button{
   background:var(--btn); color:var(--fg); border:1px solid var(--border); padding:10px 14px;
   border-radius:12px; cursor:pointer; transition:.15s transform,.15s background;
+  text-align: center;
+  min-width: 8em;
+  min-height: 4em;
 }
 button:hover{background:var(--btn-hover)}
 button.primary{background:var(--primary); color:var(--primary-fg); border-color:transparent; font-weight:600}
-button.primary:hover{filter:brightness(1.05)}
-button.secondary{}
+button.primary:hover{filter:brightness(1.15)}
 button.ghost{background:transparent}
 .hint{color:var(--muted); font-size:12px}
 .footer{
