@@ -175,6 +175,10 @@ function getRangeMidi() {
 
 function drawValidCard() {
   const [lo, hi] = getRangeMidi();
+  let base = current.targetMidi;
+  if (base === null) {
+    base = nameToMidi(settings.rangeMin) + nameToMidi(settings.rangeMax) / 2;
+  }
   const pool = INTERVALS.filter((i) => settings.pool.includes(i.id));
   if (pool.length === 0) {
     // enforce at least one (fallback)
@@ -182,7 +186,6 @@ function drawValidCard() {
   }
   // Try a number of times to find a valid pair
   for (let tries = 0; tries < 1000; tries++) {
-    const base = randint(lo, hi);
     const itv = randomChoice(pool);
     const up = Math.random() < 0.5;
     const tgt = up ? base + itv.semitones : base - itv.semitones;
@@ -193,7 +196,6 @@ function drawValidCard() {
   // As a last resort clamp target within range
   const itv = pool[0];
   const up = true;
-  const base = lo;
   const tgt = Math.min(hi, base + itv.semitones);
   return { prevMidi: base, targetMidi: tgt, intervalId: itv.id, up };
 }
