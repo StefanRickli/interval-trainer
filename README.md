@@ -3,6 +3,8 @@
 Practice imagining and singing random intervals in your browser.  
 Card UI shows **Previous note**, **Interval prompt** (e.g., `m3 ↑`), and a **Target note** that stays blurred until revealed. Uses Tone.js (Synth or Sampler). Settings persist in `localStorage`.
 
+👉 [Go to the live site](https://stefanrickli.github.io/interval-trainer/) 👈
+
 ## Demo
 Host with GitHub Pages (instructions below).
 
