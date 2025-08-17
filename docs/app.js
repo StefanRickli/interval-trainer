@@ -77,10 +77,10 @@ const INTERVALS = [
 
 // ---------- State & Persistence ----------
 const DEFAULTS = {
-  rangeMin: "E2", // midi 40
-  rangeMax: "C6", // midi 84
+  rangeMin: "A2", // midi 45
+  rangeMax: "E4", // midi 64
   showOctaves: true,
-  engine: "tone-synth",
+  engine: "tone-sampler",
   pool: [
     "m2",
     "M2",
