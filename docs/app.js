@@ -265,6 +265,30 @@ function buildPoolUI() {
     poolBox.appendChild(wrap);
   });
 }
+function setupDatalistFullList(id) {
+  const el = document.getElementById(id);
+  el.addEventListener("focus", () => {
+    el.dataset.prev = el.value; // remember current
+    el.value = ""; // clear so the whole list shows
+    // On Chromium, open the picker immediately (if supported)
+    if (typeof el.showPicker === "function") {
+      try {
+        el.showPicker();
+      } catch {}
+    }
+  });
+  // If user didn’t pick anything, put the old value back
+  el.addEventListener("blur", () => {
+    if (!el.value && el.dataset.prev) el.value = el.dataset.prev;
+  });
+  // Nice to have: ESC restores and closes
+  el.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && el.dataset.prev) {
+      el.value = el.dataset.prev;
+      el.blur();
+    }
+  });
+}
 function fillNoteDatalist() {
   const dl = document.getElementById("note-list");
   dl.innerHTML = "";
@@ -344,10 +368,6 @@ document.getElementById("save-settings").addEventListener("click", (ev) => {
   newCard();
 });
 
-document
-  .getElementById("settings-form")
-  .addEventListener("submit", (e) => e.preventDefault());
-
 btnNext.addEventListener("click", () => {
   newCard();
 });
@@ -394,3 +414,5 @@ function init() {
   newCard();
 }
 document.addEventListener("DOMContentLoaded", init);
+setupDatalistFullList("range-min");
+setupDatalistFullList("range-max");
